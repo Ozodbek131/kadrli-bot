@@ -7,6 +7,18 @@ const token = process.env.BOT_TOKEN;
 if (!token) {
   throw new Error("BOT_TOKEN .env ichida topilmadi");
 }
+const express = require("express");
+const app = express();
+
+const PORT = process.env.PORT || 10000;
+
+app.get("/", (req, res) => {
+  res.send("KadrLi bot ishlayapti");
+});
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log("HTTP server portda ishlayapti:", PORT);
+});
 
 const bot = new Bot(token);
 
